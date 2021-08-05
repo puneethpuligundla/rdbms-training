@@ -1,0 +1,169 @@
+
+1. Display below details from emp table empno, sal, ename
+
+SELECT empno,sal,ename 
+FROM emp;
+
+-------------------------------------------------------------------------------------------
+2. If there is a hike for clerks by 30% what is the change in monthly salary for this group
+
+SELECT empno,(sal+(sal*30)/100) AS sal,ename 
+FROM emp 
+WHERE job="CLERK";
+
+-------------------------------------------------------------------------------------------
+
+3. if there is a hike in monthly salary by 20% for ford, what will be his annual Salary.
+
+SELECT empno,sal+(sal*20)/100 AS sal, ename 
+FROM emp 
+WHERE ename="FORD"
+
+-------------------------------------------------------------------------------------------
+4.what is the annual salary for each the employees sort by annual salary
+
+SELECT empno,sal*12 AS sal, ename 
+FROM emp 
+ORDER BY sal;
+
+-------------------------------------------------------------------------------------------
+5. display emp name and jof concatinated with string works as
+
+SELECT ename||' - '||job  AS Concated
+FROM emp; 
+
+-------------------------------------------------------------------------------------------
+6. calculate total take home (sal+comm) for each employee
+
+SELECT ename,empno,sal+comm  AS combinedsal
+FROM emp; 
+
+-------------------------------------------------------------------------------------------
+
+hint: <> => not || use IS NOT
+
+-------------------------------------------------------------------------------------------
+7.What is the emp num of 'James'
+SELECT empno
+FROM emp 
+WHERE ename LIKE 'James'; 
+
+------------------------------------------------------------------------------------------
+8.What is the salary of 'king'?
+
+SELECT sal 
+FROM emp 
+WHERE ename LIKE 'KING';
+
+------------------------------------------------------------------------------------------
+
+9. Who is the President for organization?
+select empno,ename 
+FROM emp 
+WHERE job LIKE 'PRESIDENT';
+
+-----------------------------------------------------------------------------------------
+
+10.Which dept is in Boston?
+SELECT deptno,dname
+ FROM dept
+WHERE loc LIKE "BOSTON";
+
+-----------------------------------------------------------------------------------------
+
+11.What is the dept number of accounting?
+SELECT deptno 
+FROM dept
+WHERE dname like "ACCOUNTING";
+
+-----------------------------------------------------------------------------------------
+
+12.List Employee names drawing sal bet 1500 & 3000?
+SELECT ename 
+FROM emp 
+WHERE sal BETWEEN 1500 AND 3000;
+
+----------------------------------------------------------------------------------------
+
+13.List all details of all the managers?
+SELECT * 
+FROM emp 
+WHERE job like 'MANAGER';
+
+----------------------------------------------------------------------------------------
+
+14. Give emp details for employees drawing commission?
+SELECT * 
+FROM emp 
+WHERE comm IS NOT NULL;
+
+----------------------------------------------------------------------------------------
+
+15.Who is the manager for dept no 30?
+SELECT empno,ename 
+FROM emp 
+WHERE job LIKE 'MANAGER' AND deptno=30;
+
+----------------------------------------------------------------------------------------
+
+16. List employees who joined before april-1981?
+SELECT empno,ename 
+FROM emp 
+WHERE hiredate IN ('20-FEB-81','22-FEB-81','17-FEB-80');
+
+----------------------------------------------------------------------------------------
+
+17. What is the salary of following: King, blake,ford,smith
+SELECT ename,sal 
+FROM emp
+WHERE ename IN ('KING','BLAKE','FORD','SMITH');
+
+----------------------------------------------------------------------------------------
+
+18. Give the hiredate of president & managers
+SELECT ename,empno,hiredate 
+FROM emp
+WHERE job IN ('HIREDATE','MANAGER');
+
+----------------------------------------------------------------------------------------
+19.Who is drawing salary less than 3500
+
+SELECT empno,ename
+FROM emp 
+WHERE sal < 3500;
+
+----------------------------------------------------------------------------------------
+
+20. List the details of all the clerks
+
+SELECT *
+FROM emp 
+WHERE job like "CLERK";
+
+---------------------------------------------------------------------------------------
+
+21. List the names starting with A
+
+SELECT ename
+FROM emp 
+WHERE ename like "A%";
+
+---------------------------------------------------------------------------------------
+
+22. List the names whose name ends with D
+
+SELECT ename
+FROM emp 
+WHERE ename like "%D";
+
+---------------------------------------------------------------------------------------
+
+23.List the names in which 3rd  character is L
+
+SELECT ename
+FROM emp 
+WHERE ename like "__L%";
+
+---------------------------------------------------------------------------------------
+
+24. 
